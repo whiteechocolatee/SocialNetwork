@@ -1,0 +1,17 @@
+.content {
+  grid-area: c;
+  background-color: #61e1af;
+}
+
+
+.item img{
+  width: 50px;
+  border-radius: 20px;
+  height: auto;
+}
+
+
+.likes{
+  font-weight: bold;
+  color:#E14B00;
+}

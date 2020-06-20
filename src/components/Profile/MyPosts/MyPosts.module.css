@@ -1,0 +1,40 @@
+.content {
+  padding: 10px;
+}
+
+.buttonAdd {
+  background-color: #1e1e1e;
+  color: #fff;
+  text-decoration: none;
+  line-height: 15px;
+  list-style: none;
+  outline: none;
+  border: 0px;
+  font-size: 15px;
+  font-weight: bold;
+  height: 25px;
+  margin: 10px;
+}
+
+.buttonRemove {
+  background-color: #1e1e1e;
+  color: #fff;
+  text-decoration: none;
+  line-height: 15px;
+  list-style: none;
+  outline: none;
+  border: 0px;
+  font-size: 15px;
+  font-weight: bold;
+  height: 25px;
+  margin: 10px;
+}
+
+.buttonAdd:hover {
+  background-color: red;
+}
+
+
+.buttonRemove:hover{
+    background-color: red;
+}

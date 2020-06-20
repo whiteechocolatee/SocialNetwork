@@ -13,7 +13,8 @@
   font-size: 15px;
   font-weight: bold;
   height: 25px;
-  margin: 10px;
+  border-radius: 10px;
+
 }
 
 .buttonRemove {
@@ -28,13 +29,13 @@
   font-weight: bold;
   height: 25px;
   margin: 10px;
+  border-radius: 10px;
 }
 
 .buttonAdd:hover {
   background-color: red;
 }
 
-
-.buttonRemove:hover{
-    background-color: red;
+.buttonRemove:hover {
+  background-color: red;
 }

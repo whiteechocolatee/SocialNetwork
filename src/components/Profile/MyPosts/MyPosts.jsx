@@ -5,6 +5,11 @@ import Post from "./Post/Post";
 // import Likes from "./Post/Likes";
 
 const MyPosts = () => {
+  let postData = [
+    { post: "Hi man", id: 1, likesCount: 42 },
+    { post: "i will be fine!", id: 2, likesCount: 23 },
+  ];
+
   return (
     <div className={c.content}>
       <div>
@@ -21,10 +26,9 @@ const MyPosts = () => {
       </div>
       <div>new post</div>
       <div className={c.posts}>
-        <Post message="Hi man" quantity="Likes 42" />
-        {/* <Likes quantity='Likes 40'/>  */}
-        <Post message="i will be fine!" quantity="Likes 23" />
-        {/* <Likes quantity='Likes 53'/> */}
+        <Post message={postData[0].post} quantity={postData[0].likesCount} />
+
+        <Post message={postData[1].post} quantity={postData[1].likesCount} />
       </div>
     </div>
   );

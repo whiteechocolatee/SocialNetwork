@@ -7,6 +7,13 @@ const MyPosts = (props) => {
     <Post message={post.post} quantity={post.likesCount} />
   ));
 
+  let newPost = React.createRef();
+
+  let addPost = () => {
+      let text = newPost.current.value;
+      alert(text);
+  }
+
   return (
     <div className={classes.content}>
       <div>
@@ -14,10 +21,10 @@ const MyPosts = (props) => {
       </div>
       <div>
         <div>
-          <textarea></textarea>
+          <textarea ref={newPost}></textarea>
         </div>
         <div>
-          <button className={classes.buttonAdd}>Add post</button>
+          <button className={classes.buttonAdd} onClick={ addPost}>Add post</button>
           <button className={classes.buttonRemove}>Remove post</button>
         </div>
       </div>

@@ -11,6 +11,7 @@ let state = {
       { message: "blablabla", id: 4, likesCount: 63 },
       { message: "haha", id: 5, likesCount: 17 },
     ],
+    newPostText: '...'
   },
   dialogsPage: {
     messages: [
@@ -40,6 +41,13 @@ export const addPost = (postMessage) => {
   state.profilePage.posts.push(myPost);
   rerenderTree(state);
 };
+
+
+export const updateNewPost = (newText) => {
+  state.profilePage.newPostText = newText;
+  rerenderTree(state);
+};
+
 
 export const subscribe = (observer) =>{
   rerenderTree = observer;

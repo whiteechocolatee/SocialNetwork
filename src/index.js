@@ -1,24 +1,31 @@
 import "./index.css";
 import * as serviceWorker from "./serviceWorker";
-import state, {subscribe} from "./stateData/state";
+import state, { subscribe } from "./stateData/state";
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import { addPost } from "./stateData/state";
+import { updateNewPost} from "./stateData/state";
+import { BrowserRouter } from "react-router-dom";
+
 
 let rerenderTree = (state) => {
   ReactDOM.render(
-    <React.StrictMode>
-      <App state={state} addPost={addPost} />
-    </React.StrictMode>,
+    <BrowserRouter>
+      <React.StrictMode>
+        <App state={state} 
+       updateNewPost={updateNewPost}
+        addPost={addPost} />
+      </React.StrictMode>
+    </BrowserRouter>,
     document.getElementById("root")
   );
 };
 
 rerenderTree(state);
 
-subscribe (rerenderTree);
+subscribe(rerenderTree);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

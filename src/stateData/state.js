@@ -1,5 +1,5 @@
 let store = {
-  _state : {
+  _state: {
     profilePage: {
       posts: [
         { message: "Hi man!!", id: 1, likesCount: 42 },
@@ -29,10 +29,11 @@ let store = {
     },
   },
 
-  getState () {
+  getState() {
     return this._state;
   },
 
+  /*
   addPost(postMessage) {
     let myPost = {
       message: postMessage,
@@ -47,15 +48,33 @@ let store = {
     this._state.profilePage.newPostText = newText;
     this._rerenderTree(this._state);
   },
-  
+  */
+
+
+
   subscribe(observer) {
     this._rerenderTree = observer;
   },
-  
-  _callSubscriber  ()  {
+
+  _callSubscriber() {
     console.log("tree changed");
+  },
+
+  dispatch(action) {
+    if (action.type === "ADD-POST") {
+      let myPost = {
+        message: this._state.profilePage.newPostText,
+        id: 6,
+        likesCount: 77,
+      };
+      this._state.profilePage.posts.push(myPost);
+      this._state.profilePage.newPostText = '';
+      this._rerenderTree(this._state);
+    } else if (action.type === "UPDATE-NEW-POST") {
+      this._state.profilePage.newPostText = action.newText;
+      this._rerenderTree(this._state);
+    }
   },
 };
 
 export default store;
-

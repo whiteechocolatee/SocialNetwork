@@ -33,25 +33,6 @@ let store = {
     return this._state;
   },
 
-  /*
-  addPost(postMessage) {
-    let myPost = {
-      message: postMessage,
-      id: 6,
-      likesCount: 77,
-    };
-    this._state.profilePage.posts.push(myPost);
-    this._rerenderTree(this._state);
-  },
-  
-  updateNewPost(newText) {
-    this._state.profilePage.newPostText = newText;
-    this._rerenderTree(this._state);
-  },
-  */
-
-
-
   subscribe(observer) {
     this._rerenderTree = observer;
   },
@@ -68,13 +49,23 @@ let store = {
         likesCount: 77,
       };
       this._state.profilePage.posts.push(myPost);
-      this._state.profilePage.newPostText = '';
+      this._state.profilePage.newPostText = "";
       this._rerenderTree(this._state);
     } else if (action.type === "UPDATE-NEW-POST") {
       this._state.profilePage.newPostText = action.newText;
       this._rerenderTree(this._state);
     }
   },
+};
+
+export const addPostActionCreator = () => {
+  return {
+    type: "ADD-POST",
+  };
+};
+
+export const onPostChangeActionCreator = (text) => {
+  return { type: "UPDATE-NEW-POST", newText: text };
 };
 
 export default store;

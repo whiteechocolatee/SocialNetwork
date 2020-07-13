@@ -1,3 +1,6 @@
+const ADD_POST = "ADD-POST";
+const UPDATE_NEW_POST = "UPDATE-NEW-POST";
+
 let store = {
   _state: {
     profilePage: {
@@ -42,7 +45,7 @@ let store = {
   },
 
   dispatch(action) {
-    if (action.type === "ADD-POST") {
+    if (action.type === ADD_POST) {
       let myPost = {
         message: this._state.profilePage.newPostText,
         id: 6,
@@ -51,7 +54,7 @@ let store = {
       this._state.profilePage.posts.push(myPost);
       this._state.profilePage.newPostText = "";
       this._rerenderTree(this._state);
-    } else if (action.type === "UPDATE-NEW-POST") {
+    } else if (action.type === UPDATE_NEW_POST) {
       this._state.profilePage.newPostText = action.newText;
       this._rerenderTree(this._state);
     }

@@ -2,6 +2,10 @@ import React from "react";
 import classes from "./Dialogs.module.css";
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Messages/Message";
+import {
+  addMessageCreator,
+  onMessageChangeCreator,
+} from "../../stateData/state";
 
 const Dialogs = (props) => {
   let dialogsElements = props.state.dialogs.map((dialog) => (
@@ -12,11 +16,19 @@ const Dialogs = (props) => {
     <Message message={message.message} id={message.id} />
   ));
 
+  let newMessage = props.state.newMessageText;
+
   let newMessageSend = React.createRef();
 
-  let addMessage = (props) => {
+  let addMessage = () => {
+    props.dispatch(addMessageCreator());
+  };
+
+  let onMessageChange = () => {
     let text = newMessageSend.current.value;
-    alert(text);
+    let action = onMessageChangeCreator(text);
+    newMessageSend.current.value = "";
+    props.dispatch(action);
   };
 
   return (
@@ -25,7 +37,12 @@ const Dialogs = (props) => {
       <div className={classes.messages}>
         {messageElements}
         <div>
-          <textarea ref={newMessageSend}></textarea>
+          <textarea
+            onChange={onMessageChange}
+            ref={newMessageSend}
+            // placeholder="Enter your message..."
+            value={newMessage}
+          ></textarea>
         </div>
         <div>
           <button onClick={addMessage}>Sent message</button>

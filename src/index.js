@@ -1,13 +1,10 @@
 import "./index.css";
 import * as serviceWorker from "./serviceWorker";
-// import state, { subscribe } from "./stateData/state";
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import store from "./stateData/state";
-// import { addPost } from "./stateData/state";
-// import { updateNewPost } from "./stateData/state";
 import { BrowserRouter } from "react-router-dom";
 
 let rerenderTree = () => {
@@ -16,8 +13,8 @@ let rerenderTree = () => {
       <React.StrictMode>
         <App
           state={store.getState()}
-          updateNewPost={store.updateNewPost.bind(store)}
-          addPost={store.addPost.bind(store)}
+          dispatch={store.dispatch.bind(store)}
+          store={store}
         />
       </React.StrictMode>
     </BrowserRouter>,
@@ -25,7 +22,7 @@ let rerenderTree = () => {
   );
 };
 
-rerenderTree();
+rerenderTree(store.getState());
 
 store.subscribe(rerenderTree);
 

@@ -1,8 +1,5 @@
-const ADD_POST = "ADD-POST";
-const UPDATE_NEW_POST = "UPDATE-NEW-POST";
-
-const ADD_MESSAGE = "ADD-MESSAGE";
-const UPDATE_NEW_MESSAGE = "UPDATE-NEW-MESSAGE";
+import profileReducer from "./profileReducer";
+import dialogsReducer from "./dialogsReducer";
 
 let store = {
   _state: {
@@ -49,30 +46,10 @@ let store = {
   },
 
   dispatch(action) {
-    if (action.type === ADD_POST) {
-      let myPost = {
-        message: this._state.profilePage.newPostText,
-        id: 6,
-        likesCount: 77,
-      };
-      this._state.profilePage.posts.push(myPost);
-      this._state.profilePage.newPostText = "";
-      this._rerenderTree(this._state);
-    } else if (action.type === UPDATE_NEW_POST) {
-      this._state.profilePage.newPostText = action.newText;
-      this._rerenderTree(this._state);
-    } else if (action.type === ADD_MESSAGE) {
-      let myMessage = {
-        message: this._state.dialogsPage.newMessageText,
-        id: 6,
-      };
-      this._state.dialogsPage.messages.push(myMessage);
-      this._state.dialogsPage.newMessageText = "";
-      this._rerenderTree(this._state);
-    } else if (action.type === UPDATE_NEW_MESSAGE) {
-      this._state.dialogsPage.newMessageText = action.newMessage;
-      this._rerenderTree(this._state);
-    }
+    this._state.profilePage = profileReducer(this._state.profilePage, action);
+    this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
+
+    this._rerenderTree(this._state);
   },
 };
 

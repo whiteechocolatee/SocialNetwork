@@ -5,7 +5,7 @@ import Message from "./Messages/Message";
 import {
   addMessageCreator,
   onMessageChangeCreator,
-} from "../../stateData/state";
+} from "../../stateData/store";
 
 const Dialogs = (props) => {
   let dialogsElements = props.state.dialogs.map((dialog) => (

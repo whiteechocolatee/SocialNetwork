@@ -4,7 +4,7 @@ import Post from "./Post/Post";
 import {
   addPostActionCreator,
   onPostChangeActionCreator,
-} from "../../../stateData/state";
+} from "../../../stateData/store";
 
 const MyPosts = (props) => {
   let postElements = props.posts.map((post) => (

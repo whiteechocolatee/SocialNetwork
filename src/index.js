@@ -4,7 +4,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
-import store from "./stateData/store";
+import store from "./stateData/redux-store";
 import { BrowserRouter } from "react-router-dom";
 
 let rerenderTree = () => {

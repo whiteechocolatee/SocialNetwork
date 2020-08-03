@@ -3,9 +3,9 @@ import classes from "./Dialogs.module.css";
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Messages/Message";
 import {
-  addMessageCreator,
   onMessageChangeCreator,
-} from "../../stateData/store";
+  addMessageCreator,
+} from "../../stateData/dialogsReducer";
 
 const Dialogs = (props) => {
   let dialogsElements = props.state.dialogs.map((dialog) => (

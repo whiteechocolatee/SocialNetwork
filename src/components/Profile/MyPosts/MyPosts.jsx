@@ -1,12 +1,9 @@
 import React from "react";
 import classes from "./MyPosts.module.css";
 import Post from "./Post/Post";
-import {
-  addPostActionCreator,
-  onPostChangeActionCreator,
-} from "../../../stateData/store";
 
 const MyPosts = (props) => {
+  debugger;
   let postElements = props.posts.map((post) => (
     <Post message={post.message} quantity={post.likesCount} />
   ));
@@ -14,14 +11,12 @@ const MyPosts = (props) => {
   let newPost = React.createRef();
 
   let addPost = () => {
-    props.dispatch(addPostActionCreator());
+    props.addPost();
   };
 
   let onPostChange = () => {
     let text = newPost.current.value;
-    let action = onPostChangeActionCreator(text);
-    newPost.current.value = "";
-    props.dispatch(action);
+    props.updateNewPostText(text);
   };
 
   return (

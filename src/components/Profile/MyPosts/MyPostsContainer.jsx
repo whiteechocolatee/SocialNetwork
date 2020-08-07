@@ -6,6 +6,8 @@ import {
 import MyPosts from "./MyPosts";
 
 const MyPostsContainer = (props) => {
+  debugger;
+
   let addPost = () => {
     props.dispatch(addPostActionCreator());
   };
@@ -17,10 +19,10 @@ const MyPostsContainer = (props) => {
 
   return (
     <MyPosts
-      addPost={addPost}
+      newPostText={props.newPostText}
       updateNewPostText={onPostChange}
+      addPost={addPost}
       posts={props.profilePage.posts}
-      newPostText={props.profilePage.newPostText}
     />
   );
 };

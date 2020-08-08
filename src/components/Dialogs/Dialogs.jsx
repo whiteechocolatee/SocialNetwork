@@ -40,7 +40,6 @@ const Dialogs = (props) => {
           <textarea
             onChange={onMessageChange}
             ref={newMessageSend}
-            // placeholder="Enter your message..."
             value={newMessage}
           ></textarea>
         </div>

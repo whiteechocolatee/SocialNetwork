@@ -13,8 +13,7 @@ const Profile = (props) => {
         dispatch={props.dispatch}
         profilePage={props.profilePage}
         posts={props.profilePage.posts}
-        // dispatch={props.dispatch}
-        // newPostText={props.profilePage.newPostText}
+        newPostText={props.profilePage.newPostText}
       />
     </div>
   );

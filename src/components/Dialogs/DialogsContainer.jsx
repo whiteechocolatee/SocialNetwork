@@ -6,24 +6,27 @@ import {
   onMessageChangeCreator,
   addMessageCreator,
 } from "../../stateData/dialogsReducer";
+import Dialogs from "./Dialogs";
 
-const Dialogs = (props) => {
-  let newMessage = props.state.newMessageText;
-
-  let newMessageSend = React.createRef();
-
+const DialogsContainer = (props) => {
   let addMessage = () => {
     props.dispatch(addMessageCreator());
   };
 
-  let onMessageChange = () => {
-    let text = newMessageSend.current.value;
+  let onMessageChange = (text) => {
     let action = onMessageChangeCreator(text);
-    newMessageSend.current.value = "";
     props.dispatch(action);
   };
 
-  return <Dialogs />;
+  return (
+    <Dialogs
+      addMessage={addMessage}
+      onMessageChange={onMessageChange}
+      state={props.state.dialogsPage}
+      dispatch={props.dispatch}
+      store={props.store}
+    />
+  );
 };
 
-export default Dialogs;
+export default DialogsContainer;

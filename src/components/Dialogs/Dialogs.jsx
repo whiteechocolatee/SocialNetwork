@@ -2,17 +2,13 @@ import React from "react";
 import classes from "./Dialogs.module.css";
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Messages/Message";
-import {
-  onMessageChangeCreator,
-  addMessageCreator,
-} from "../../stateData/dialogsReducer";
 
 const Dialogs = (props) => {
-  let dialogsElements = props.state.dialogs.map((dialog) => (
+  let dialogsElements = props.dialogs.map((dialog) => (
     <DialogItem name={dialog.name} id={dialog.id} />
   ));
 
-  let messageElements = props.state.messages.map((message) => (
+  let messageElements = props.messages.map((message) => (
     <Message message={message.message} id={message.id} />
   ));
 
@@ -21,14 +17,12 @@ const Dialogs = (props) => {
   let newMessageSend = React.createRef();
 
   let addMessage = () => {
-    props.dispatch(addMessageCreator());
+    props.addMessage();
   };
 
   let onMessageChange = () => {
     let text = newMessageSend.current.value;
-    let action = onMessageChangeCreator(text);
-    newMessageSend.current.value = "";
-    props.dispatch(action);
+    props.updateNewMessage(text);
   };
 
   return (

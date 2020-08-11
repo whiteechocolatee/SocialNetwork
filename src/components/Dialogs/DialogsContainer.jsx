@@ -1,7 +1,4 @@
 import React from "react";
-import classes from "./Dialogs.module.css";
-import DialogItem from "./DialogItem/DialogItem";
-import Message from "./Messages/Message";
 import {
   onMessageChangeCreator,
   addMessageCreator,
@@ -21,10 +18,12 @@ const DialogsContainer = (props) => {
   return (
     <Dialogs
       addMessage={addMessage}
-      onMessageChange={onMessageChange}
-      state={props.state.dialogsPage}
+      updateNewMessage={onMessageChange}
+      state={props.state}
       dispatch={props.dispatch}
       store={props.store}
+      dialogs={props.state.dialogs}
+      messages={props.state.messages}
     />
   );
 };

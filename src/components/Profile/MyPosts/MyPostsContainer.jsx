@@ -4,6 +4,7 @@ import {
   onPostChangeActionCreator,
 } from "../../../stateData/profileReducer";
 import MyPosts from "./MyPosts";
+import StoreContext from "../../../StoreContext";
 
 const MyPostsContainer = (props) => {
   let addPost = () => {
@@ -16,12 +17,16 @@ const MyPostsContainer = (props) => {
   };
 
   return (
-    <MyPosts
-      newPostText={props.profilePage.newPostText}
-      updateNewPostText={onPostChange}
-      addPost={addPost}
-      posts={props.profilePage.posts}
-    />
+    <StoreContext>
+      {(store) => (
+        <MyPosts
+          newPostText={store.getState().profilePage.newPostText}
+          updateNewPostText={onPostChange}
+          addPost={addPost}
+          posts={store.getState().profilePage.posts}
+        />
+      )}
+    </StoreContext>
   );
 };
 

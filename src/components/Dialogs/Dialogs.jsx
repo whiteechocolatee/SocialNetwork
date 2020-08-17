@@ -12,7 +12,7 @@ const Dialogs = (props) => {
     <Message message={message.message} id={message.id} />
   ));
 
-  let newMessage = props.state.newMessageText;
+  let newMessage = props.newMessageText;
 
   let newMessageSend = React.createRef();
 
@@ -34,7 +34,6 @@ const Dialogs = (props) => {
           <textarea
             onChange={onMessageChange}
             ref={newMessageSend}
-            // placeholder="Enter your message..."
             value={newMessage}
           ></textarea>
         </div>

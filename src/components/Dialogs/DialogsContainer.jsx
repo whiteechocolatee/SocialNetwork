@@ -23,11 +23,9 @@ const DialogsContainer = (props) => {
           <Dialogs
             addMessage={addMessage}
             updateNewMessage={onMessageChange}
-            state={store.getState().state}
-            dispatch={store.getState().dispatch}
-            store={store.getState().store}
             dialogs={store.getState().dialogsPage.dialogs}
             messages={store.getState().dialogsPage.messages}
+            newMessageText={store.getState().dialogsPage.newMessageText}
           />
         );
       }}

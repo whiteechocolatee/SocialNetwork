@@ -73,4 +73,6 @@ export const onMessageChangeCreator = (text) => {
   return { type: "UPDATE-NEW-MESSAGE", newMessage: text };
 };
 
+window.store = store;
+
 export default store;

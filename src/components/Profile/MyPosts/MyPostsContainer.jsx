@@ -31,17 +31,17 @@ import { connect } from "react-redux";
 //   );
 // };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (store) => {
   return {
-    profilePage: state.profilePage,
+    profilePage: store.profilePage,
   };
 };
 
 const mapStateToDispatch = (dispatch) => {
   return {
-    onPostChange: (text) => {
-      let action = onPostChangeActionCreator(text);
-      dispatch(action);
+    updateNewPostText: (text) => {
+      // let action = onPostChangeActionCreator();
+      dispatch(onPostChangeActionCreator(text));
     },
     addPost: () => {
       dispatch(addPostActionCreator());

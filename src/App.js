@@ -20,7 +20,7 @@ const App = (props) => {
           render={() => (
             <Profile
               //profilePage={props.state.profilePage}
-              dispatch={props.dispatch}
+              //dispatch={props.dispatch}
             />
           )}
         />

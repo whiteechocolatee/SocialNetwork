@@ -42,19 +42,6 @@ const dialogsReducer = (state = initState, action) => {
       return state;
     }
   }
-
-  // if (action.type === ADD_MESSAGE) {
-  //   let myMessage = {
-  //     message: state.newMessageText,
-  //     id: 6,
-  //   };
-  //   state.messages.push(myMessage);
-  //   state.newMessageText = "";
-  // } else if (action.type === UPDATE_NEW_MESSAGE) {
-  //   state.newMessageText = action.newMessage;
-  // }
-
-  // return state;
 };
 
 export default dialogsReducer;

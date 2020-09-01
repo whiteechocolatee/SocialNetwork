@@ -35,22 +35,6 @@ const profileReducer = (state = initState, action) => {
       return state;
     }
   }
-  // if (action.type === ADD_POST) {
-  //   let myPost = {
-  //     message: state.newPostText,
-  //     id: 6,
-  //     likesCount: 77,
-  //   };
-  //   let stateCopy = { ...state };
-  //   stateCopy.posts = [...state.posts];
-  //   stateCopy.posts.push(myPost);
-  //   stateCopy.newPostText = "";
-  // } else if (action.type === UPDATE_NEW_POST) {
-  //   let stateCopy = { ...state };
-  //   stateCopy.newPostText = action.newText;
-  // }
-
-  // return state;
 };
 
 export default profileReducer;

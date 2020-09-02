@@ -31,35 +31,41 @@ let initState = {
 const usersReducer = (state = initState, action) => {
   switch (action.type) {
     case FOLLOW: {
-      let stateCopy = {
+      return {
         ...state,
         users: state.users.map((u) => {
-          if (u.id === action.id) {
-            return { u, followed: true };
+          if (u.id === action.userId) {
+            return { ...u, followed: true };
           }
           return u;
         }),
       };
     }
     case UNFOLLOW: {
-      let stateCopy = {
+      return {
         ...state,
         users: state.users.map((u) => {
           if (u.id === action.userId) {
-            return { u, followed: false };
+            return { ...u, followed: false };
           }
           return u;
         }),
       };
     }
+
     case SET_USERS: {
-      return { ...state, users: [...state.users, ...action.users] };
+      return {
+        ...state,
+        users: [...state.users, ...action.users],
+      };
     }
+    // eslint-disable-next-line no-fallthrough
     default: {
       return state;
     }
   }
 };
+
 export default usersReducer;
 
 export const followAC = (userId) => {
